@@ -1,0 +1,26 @@
+import random
+guess = ""
+guess = (input("Guess a number between 1 and 10: "))
+r_num = random.randint(1, 10)
+
+def int_check(guess):
+    guess_count = 1
+    while guess.isdigit() == False:
+        guess = input("Try again. Guess a number between 1 and 10: ")
+    else:
+        guess = int(guess)
+        if guess == r_num:
+            print("That's right. On the first try--awesome!")
+        else:
+            while guess != r_num:
+                if guess < r_num:
+                    print("Too low.")
+                    guess = int(input("Guess again: "))
+                    guess_count += 1
+                else:
+                    print("Too high.")
+                    guess = int(input("Guess again: "))
+                    guess_count += 1
+        print("That's it! You got it in " + str(guess_count) + " guesses.")
+
+int_check(guess)
